@@ -1,0 +1,6 @@
+[
+  {"source": "qbit", "target": "superposition", "type": "enables"},
+  {"source": "qbit", "target": "entanglement", "type": "enables"},
+  {"source": "superposition", "target": "shor", "type": "used_in"},
+  {"source": "entanglement", "target": "shor", "type": "used_in"}
+]

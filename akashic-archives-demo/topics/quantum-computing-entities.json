@@ -1,0 +1,6 @@
+[
+  {"id": "qbit", "name": "Qubit", "type": "Concept", "description": "The basic unit of quantum information."},
+  {"id": "superposition", "name": "Superposition", "type": "Principle", "description": "A quantum system can exist in multiple states simultaneously."},
+  {"id": "entanglement", "name": "Entanglement", "type": "Principle", "description": "Quantum particles can be correlated in such a way that the state of one instantly influences the state of another."},
+  {"id": "shor", "name": "Shor's Algorithm", "type": "Algorithm", "description": "A quantum algorithm for integer factorization."}
+]

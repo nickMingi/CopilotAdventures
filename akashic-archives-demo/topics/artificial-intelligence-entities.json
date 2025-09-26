@@ -1,0 +1,6 @@
+[
+  {"id": "ai", "name": "Artificial Intelligence", "type": "Field", "description": "The simulation of human intelligence in machines."},
+  {"id": "ml", "name": "Machine Learning", "type": "Subfield", "description": "Algorithms that improve automatically through experience."},
+  {"id": "dl", "name": "Deep Learning", "type": "Subfield", "description": "A subset of machine learning using neural networks with many layers."},
+  {"id": "turing", "name": "Alan Turing", "type": "Person", "description": "Pioneer of theoretical computer science and artificial intelligence."}
+]
