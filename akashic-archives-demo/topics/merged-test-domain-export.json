@@ -1,0 +1,115 @@
+{
+  "entities": [
+    {
+      "id": "qbit",
+      "name": "Qubit",
+      "type": "Concept",
+      "description": "The basic unit of quantum information."
+    },
+    {
+      "id": "superposition",
+      "name": "Superposition",
+      "type": "Principle",
+      "description": "A quantum system can exist in multiple states simultaneously."
+    },
+    {
+      "id": "entanglement",
+      "name": "Entanglement",
+      "type": "Principle",
+      "description": "Quantum particles can be correlated in such a way that the state of one instantly influences the state of another."
+    },
+    {
+      "id": "shor",
+      "name": "Shor's Algorithm",
+      "type": "Algorithm",
+      "description": "A quantum algorithm for integer factorization."
+    },
+    {
+      "id": "ai",
+      "name": "Artificial Intelligence",
+      "type": "Field",
+      "description": "The simulation of human intelligence in machines."
+    },
+    {
+      "id": "ml",
+      "name": "Machine Learning",
+      "type": "Subfield",
+      "description": "Algorithms that improve automatically through experience."
+    },
+    {
+      "id": "dl",
+      "name": "Deep Learning",
+      "type": "Subfield",
+      "description": "A subset of machine learning using neural networks with many layers."
+    },
+    {
+      "id": "turing",
+      "name": "Alan Turing",
+      "type": "Person",
+      "description": "Pioneer of theoretical computer science and artificial intelligence."
+    }
+  ],
+  "relationships": [
+    {
+      "source": "qbit",
+      "target": "superposition",
+      "type": "enables"
+    },
+    {
+      "source": "qbit",
+      "target": "entanglement",
+      "type": "enables"
+    },
+    {
+      "source": "superposition",
+      "target": "shor",
+      "type": "used_in"
+    },
+    {
+      "source": "entanglement",
+      "target": "shor",
+      "type": "used_in"
+    },
+    {
+      "source": "ai",
+      "target": "ml",
+      "type": "includes"
+    },
+    {
+      "source": "ml",
+      "target": "dl",
+      "type": "includes"
+    },
+    {
+      "source": "turing",
+      "target": "ai",
+      "type": "pioneer"
+    }
+  ],
+  "sources": [
+    {
+      "id": "arxiv-quant-ph-010101",
+      "title": "Quantum Computation and Quantum Information",
+      "url": "https://arxiv.org/abs/quant-ph/010101",
+      "credibility": "high"
+    },
+    {
+      "id": "wiki-quantum",
+      "title": "Quantum Computing - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Quantum_computing",
+      "credibility": "medium"
+    },
+    {
+      "id": "wiki-ai",
+      "title": "Artificial Intelligence - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Artificial_intelligence",
+      "credibility": "medium"
+    },
+    {
+      "id": "stanford-ai",
+      "title": "Stanford AI Index Report",
+      "url": "https://aiindex.stanford.edu/",
+      "credibility": "high"
+    }
+  ]
+}

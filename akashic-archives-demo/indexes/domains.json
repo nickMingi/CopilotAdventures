@@ -1,4 +1,12 @@
 [
-  {"id": "quantum-computing", "name": "Quantum Computing", "description": "Study of computation using quantum-mechanical phenomena."},
-  {"id": "artificial-intelligence", "name": "Artificial Intelligence", "description": "Simulation of human intelligence by machines."}
+  {
+    "id": "quantum-computing",
+    "name": "Quantum Computing",
+    "description": "Study of computation using quantum-mechanical phenomena."
+  },
+  {
+    "id": "artificial-intelligence",
+    "name": "Artificial Intelligence",
+    "description": "Simulation of human intelligence by machines."
+  }
 ]
