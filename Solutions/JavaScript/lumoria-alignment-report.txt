@@ -1,0 +1,30 @@
+Lumoria Celestial Alignment - Detailed Report
+============================================
+
+System Planets:
+- Mercuria: 0.4 AU, 4,879 km
+- Venusia: 0.7 AU, 12,104 km
+- Earthia: 1.0 AU, 12,742 km
+- Marsia: 1.5 AU, 6,779 km
+
+Alignment & Shadow Analysis:
+- Planets are sorted by distance from the sun.
+- Shadows are cast by larger, closer planets onto those farther away.
+- Mercuria receives full light (no closer planets).
+- Venusia is partially shadowed by no larger planet, so receives full light.
+- Earthia is shadowed by Venusia (larger & closer), so receives partial light.
+- Marsia is shadowed by both Venusia and Earthia, so receives multiple shadows (none).
+
+Scientific Improvements:
+- Shadow cones are now calculated using angular diameter and distance.
+- Partial shadowing is determined by overlap of shadow cones.
+- Light intensity is proportional to the visible solar disk fraction.
+
+Animation:
+- See the SVG for a static alignment. For animation, use a web viewer to animate planet positions and shadow cones over time.
+
+Custom Systems:
+- The system supports any number of planets with user-defined distances and diameters.
+
+Unit Testing:
+- See test file for light intensity logic validation.

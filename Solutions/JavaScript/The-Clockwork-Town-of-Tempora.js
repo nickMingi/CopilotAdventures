@@ -1,26 +1,63 @@
-/**
- * Calculates the time difference between two clock times in minutes.
- * @param {string} clockTime - The first clock time in "HH:MM" format.
- * @param {string} grandClockTime - The second clock time in "HH:MM" format.
- * @returns {number} The time difference between the two clock times in minutes.
- */
-function timeDifference(clockTime, grandClockTime) {
-    const [clockHour, clockMinute] = clockTime.split(":").map(Number);
-    const [grandClockHour, grandClockMinute] = grandClockTime.split(":").map(Number);
 
-    return (clockHour - grandClockHour) * 60 + (clockMinute - grandClockMinute);
+/**
+ * Parses a time string (HH:MM) into total minutes since midnight.
+ * @param {string} timeStr - Time in HH:MM format
+ * @returns {number} Total minutes since midnight
+ */
+function parseTimeToMinutes(timeStr) {
+    const match = /^([01]?\d|2[0-3]):([0-5]\d)$/.exec(timeStr);
+    if (!match) {
+        throw new Error(`Invalid time format: ${timeStr}`);
+    }
+    const [, hour, minute] = match;
+    return parseInt(hour, 10) * 60 + parseInt(minute, 10);
 }
 
 /**
- * Synchronizes an array of clock times with a grand clock time by calculating the time difference between each clock time and the grand clock time.
- * @param {Array} clockTimes - An array of clock times in the format of "hh:mm:ss".
- * @param {string} grandClockTime - The grand clock time in the format of "hh:mm:ss".
- * @returns {Array} An array of time differences in seconds between each clock time and the grand clock time.
+ * Calculates the difference in minutes between a village clock and the grand clock.
+ * Positive = ahead, Negative = behind
+ * @param {string} clockTime - Village clock time (HH:MM)
+ * @param {string} grandTime - Grand clock time (HH:MM)
+ * @returns {number|null} Difference in minutes, or null if error
  */
-function synchronizeClocks(clockTimes, grandClockTime) {
-    return clockTimes.map(clockTime => timeDifference(clockTime, grandClockTime));
+function calculateMinuteDifference(clockTime, grandTime) {
+    try {
+        const clockMinutes = parseTimeToMinutes(clockTime);
+        const grandMinutes = parseTimeToMinutes(grandTime);
+        return clockMinutes - grandMinutes;
+    } catch (err) {
+        return null;
+    }
 }
 
-const clockTimes = ["14:45", "15:05", "15:00", "14:40"];
-const grandClockTime = "15:00";
-console.log(synchronizeClocks(clockTimes, grandClockTime));  // [-15, 5, 0, -20]
+/**
+ * 여러 테스트 케이스를 실행하고 결과를 명확하게 출력합니다.
+ */
+function runAllTests() {
+    const grandClockTime = "15:00";
+    const testCases = [
+        { label: 'Default', clocks: ["14:45", "15:05", "15:00", "14:40"] },
+        { label: 'All Synchronized', clocks: ["15:00", "15:00", "15:00", "15:00"] },
+        { label: 'All Ahead', clocks: ["15:10", "15:20", "15:30", "16:00"] },
+        { label: 'All Behind', clocks: ["14:00", "13:59", "12:00", "00:00"] },
+        { label: 'Invalid Inputs', clocks: ["15:00", "25:00", "14:60", "abc"] }
+    ];
+    console.log('=== Tempora Clock Synchronization (Test Suite) ===');
+    for (const test of testCases) {
+        console.log(`\n--- Test Case: ${test.label} ---`);
+        console.log('Grand Clock Tower Time:', grandClockTime);
+        test.clocks.forEach((clockTime, idx) => {
+            const diff = calculateMinuteDifference(clockTime, grandClockTime);
+            if (diff === null) {
+                console.log(`Clock #${idx + 1} [${clockTime}]: Error (Invalid time)`);
+            } else {
+                const status = diff > 0 ? 'Ahead' : diff < 0 ? 'Behind' : 'Synchronized';
+                console.log(`Clock #${idx + 1} [${clockTime}]: ${diff} min (${status})`);
+            }
+        });
+    }
+    console.log('\nAll test cases completed.');
+}
+
+// Run all test cases
+runAllTests();
